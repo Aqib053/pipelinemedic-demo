@@ -72,3 +72,20 @@ def test_add_endpoint_regression() -> None:
     assert body["a"] == 1
     assert body["b"] == 2
     assert body["result"] == 3
+
+
+# --- PipelineMedic regression tests (auto-generated) ---
+
+from fastapi.testclient import TestClient
+from app import app
+
+client = TestClient(app)
+
+def test_add_endpoint_regression() -> None:
+    """Test that the /add endpoint correctly adds two integers."""
+    response = client.get("/add/1/2")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["a"] == 1
+    assert body["b"] == 2
+    assert body["result"] == 3

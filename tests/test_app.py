@@ -38,3 +38,20 @@ def test_add_handles_negative_numbers() -> None:
     response = client.get("/add/-4/7")
     assert response.status_code == 200
     assert response.json()["sum"] == 3
+
+
+# --- PipelineMedic regression tests (auto-generated) ---
+
+from fastapi.testclient import TestClient
+from app import app
+
+client = TestClient(app)
+
+def test_add_regression() -> None:
+    """Test that the /add endpoint correctly adds two integers."""
+    response = client.get("/add/2/3")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["a"] == 2
+    assert body["b"] == 3
+    assert body["result"] == 5

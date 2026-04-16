@@ -1,13 +1,9 @@
 """pipelinemedic-demo service.
 
-A tiny FastAPI microservice used to demo the PipelineMedic flow:
-CI runs pytest -> ModuleNotFoundError: No module named 'requests'
--> PipelineMedic receives the log -> asks on Telegram -> Auto-fix PR
-adds `requests` to requirements.txt -> Merge -> CI goes green.
-
-The `requests` import below is INTENTIONALLY not declared in
-requirements.txt on the first run. Do not "fix" it by hand — that's
-what PipelineMedic is for.
+A tiny FastAPI microservice used to demo the PipelineMedic flow end
+to end. Contains a realistic logic bug in the /add endpoint — the
+test suite catches it, CI fails, and PipelineMedic opens a PR that
+actually rewrites the buggy line of code.
 """
 
 from __future__ import annotations
@@ -15,11 +11,10 @@ from __future__ import annotations
 import os
 import sys
 
+import requests
 from fastapi import FastAPI, HTTPException
 
-import requests
-
-app = FastAPI(title="pipelinemedic-demo", version="0.1.0")
+app = FastAPI(title="pipelinemedic-demo", version="0.2.0")
 
 
 @app.get("/")
@@ -37,9 +32,16 @@ def health() -> dict[str, object]:
     }
 
 
+@app.get("/add/{a}/{b}")
+def add(a: int, b: int) -> dict[str, int]:
+    # BUG: this should return a + b, not a - b. The tests catch this,
+    # CI fails, and PipelineMedic is expected to open a PR that
+    # rewrites this line to use + instead of -.
+    return {"a": a, "b": b, "sum": a - b}
+
+
 @app.get("/weather/{city}")
 def weather(city: str) -> dict[str, object]:
-    """Return a short weather summary for `city` via wttr.in."""
     url = f"https://wttr.in/{city}"
     try:
         resp = requests.get(url, params={"format": "%C+%t"}, timeout=5)

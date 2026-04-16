@@ -1,8 +1,5 @@
-# PipelineMedic demo: `requests` is intentionally missing on the first
-# run so CI fails with ModuleNotFoundError and PipelineMedic can open
-# an auto-fix PR that adds it. Do not add `requests` manually.
-
 fastapi==0.115.5
 uvicorn[standard]==0.32.0
 pytest==8.3.3
 httpx==0.27.2
+requests==2.32.3

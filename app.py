@@ -51,3 +51,5 @@ def weather(city: str) -> dict[str, object]:
     return {"city": city, "summary": resp.text.strip()}
 
 # PipelineMedic audit (2026-04-16T19:57:13Z): The function in app.py is subtracting two integers instead of adding them, causing the assertion to fail. [patch fallback: unchanged]
+
+# PipelineMedic audit (2026-04-16T21:07:40Z): The function in app.py is subtracting two integers instead of adding them, resulting in an incorrect return value. [patch fallback: unchanged]

@@ -37,7 +37,7 @@ def add(a: int, b: int) -> dict[str, int]:
     # BUG: this should return a + b, not a - b. The tests catch this,
     # CI fails, and PipelineMedic is expected to open a PR that
     # rewrites this line to use + instead of -.
-    return {"a": a, "b": b, "sum": a - b}
+    return {"a": a, "b": b, "sum": a + b}
 
 
 @app.get("/weather/{city}")

@@ -49,3 +49,5 @@ def weather(city: str) -> dict[str, object]:
     except requests.RequestException as exc:
         raise HTTPException(status_code=502, detail=f"upstream error: {exc}") from exc
     return {"city": city, "summary": resp.text.strip()}
+
+# PipelineMedic audit (2026-04-16T19:57:13Z): The function in app.py is subtracting two integers instead of adding them, causing the assertion to fail. [patch fallback: unchanged]

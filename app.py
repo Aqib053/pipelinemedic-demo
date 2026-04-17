@@ -21,7 +21,7 @@ app = FastAPI(title="pipelinemedic-demo", version="0.2.0")
 def root() -> dict[str, str]:
     return {"service": "pipelinemedic-demo", "status": "ok"}
 
-
+kkkml
 @app.get("/health")
 def health() -> dict[str, object]:
     return {

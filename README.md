@@ -9,7 +9,7 @@ that triages CI failures and opens auto-fix pull requests.
 `app.py` exposes `GET /add/{a}/{b}` and currently returns `a - b`
 instead of `a + b`. `tests/test_app.py` asserts `2 + 3 == 5`, which
 fails, so CI goes red with:
-
+--ok
 ```
 AssertionError: expected 2 + 3 = 5, got -1
 ```

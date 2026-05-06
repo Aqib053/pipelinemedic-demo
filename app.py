@@ -8,7 +8,7 @@ actually rewrites the buggy line of code.
 
 from __future__ import annotations
 
-import os
+import oslll
 import sys;;;;
 
 import requests

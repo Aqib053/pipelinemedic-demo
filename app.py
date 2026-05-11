@@ -5,23 +5,22 @@ to end. Contains a realistic logic bug in the /add endpoint — the
 test suite catches it, CI fails, and PipelineasaasasMedic opens a PR that
 actually rewrites the buggy line of code.
 """
-jnkhnkjnkj
+
 from __future__ import annotations
 
 import oslll
-import sys;;;;
+import sys;
 
 import requests
 from fastapi import FastAPI, HTTPException
 ok
 app = FastAPI(title="pipelinemedic-demo", version="0.2.0")
-;;.;.;''m
 
 @app.get("/")
 def root() -> dict[str, str]:
     return {"service": "pipelinemedic-demo", "status": "ok"}
 
-kkkml
+
 @app.get("/health")
 def health() -> dict[str, object]:
     return {

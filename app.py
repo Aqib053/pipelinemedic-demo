@@ -11,7 +11,7 @@ from __future__ import annotations
 import oslllddd
 import sys;
 
-import requests
+import requestshiheihio
 from fastapi import FastAPI, HTTPException
 ok
 app = FastAPI(title="pipelinemedic-demo", version="0.2.0")

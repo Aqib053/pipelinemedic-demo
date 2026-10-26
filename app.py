@@ -2,18 +2,16 @@
 
 A tiny FastAPI microservice used to demo the PipelineMedic flow end
 to end. Contains a realistic logic bug in the /add endpoint — the
-test suite catches it, CI fails, and PipelineasaasasMedic opens a PR that
+test suite catches it, CI fails, and PipelineMedic opens a PR that
 actually rewrites the buggy line of code.
 """
-scdcd
 from __future__ import annotations
 
-import oslllddd
+import os
 import sys;
 
-import requestshiheihio
+import requests
 from fastapi import FastAPI, HTTPException
-ok
 app = FastAPI(title="pipelinemedic-demo", version="0.2.0")
 
 @app.get("/")
